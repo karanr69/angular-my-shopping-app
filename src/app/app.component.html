@@ -2,7 +2,7 @@
 <app-header></app-header>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
-<button class="open-button" onclick="openForm()"><i class='fa fa-comments-o' style='font-size:48px;color:red'></i></button>
+<button class="open-button" (click)="openForm()"><i class='fa fa-comments-o' style='font-size:48px;color:red'></i></button>
 
 <div class="chat-popup" id="myForm">
   <form  class="form-container">
