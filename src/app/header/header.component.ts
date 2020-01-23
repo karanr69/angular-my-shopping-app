@@ -3,6 +3,8 @@ import { RestApiService } from "../shared/rest-api.service";
 import {Router} from '@angular/router';
 import * as RecordRTC from 'recordrtc';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -19,7 +21,7 @@ public activeClass:boolean=false;
  private url;
  private error;
  public audiotext:string;
-  constructor(public restApi: RestApiService,private router: Router,private domSanitizer: DomSanitizer) { }
+  constructor(public restApi: RestApiService,private router: Router,private domSanitizer: DomSanitizer,private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -34,10 +36,11 @@ public activeClass:boolean=false;
     this.restApi.searchResponse = data.response;
     if(data.response.length>0){
       this.router.navigateByUrl('/search');
+      this.toastr.success("Search Results");
 
     }else{
       this.router.navigateByUrl('/home');
-      window.alert("No Result found for the search item");
+      this.toastr.warning("No Result found for the search item");
 
     }
   });
@@ -57,7 +60,7 @@ onFileSelected(event){
       this.searchProduct(className);
     }
   }else{
-    window.alert("No result Found");
+    this.toastr.warning("No Result found for the uploaded item");
   }
   });
   //console.log(event);
@@ -72,6 +75,7 @@ sanitize(url:string){
 initiateRecording() {
   this.activeClass=true;
   this.recording = true;
+  this.audiotext='';
   let mediaConstraints = {
       video: false,
       audio: true
@@ -135,8 +139,8 @@ processRecording(blob) {
       this.audiotext=transcript;
       this.searchProduct(transcript);
       
-    }{
-      window.alert("No result Found");
+    }else{
+      this.toastr.error("cannot recognise the audio");
     }
    // event.srcElement.value = null;
     /*var className:string;

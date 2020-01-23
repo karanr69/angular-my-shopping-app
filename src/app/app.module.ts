@@ -10,6 +10,8 @@ import { RestApiService } from "./shared/rest-api.service";
 import { HomeComponent } from './home/home.component';
 import { SearchProductsComponent } from './search-products/search-products.component';
 import { ProductPageComponent } from './product-page/product-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ProductPageComponent } from './product-page/product-page.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+	ToastrModule.forRoot()
   ],
   providers: [RestApiService],
   bootstrap: [AppComponent]

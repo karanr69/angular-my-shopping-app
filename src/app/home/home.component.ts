@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from "../shared/rest-api.service";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -28,6 +29,7 @@ var param;
     //}
     
     this.products = data.response;
+    //this.toastr.error("Hello, I'm the toastr message.")
   });
 }
 }

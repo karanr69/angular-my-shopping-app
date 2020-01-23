@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs/internal/Subscription';
 })
 export class RestApiService {
 
-  apiURL = 'http://my-shopping-b-dao-sahal.gamification-d3c0cb24e2b77f6869027abe3de4bca3-0001.sng01.containers.appdomain.cloud';
+  apiURL = 'https://my-shopping-b-dao-sahal.gamification-d3c0cb24e2b77f6869027abe3de4bca3-0001.sng01.containers.appdomain.cloud';
   headers: HttpHeaders;  
   options: any;
   public productid:string;
@@ -56,7 +56,7 @@ getAllSearchProductList(param:any): Observable<any> {
 uploadFile(param:any): Observable<any> {
   var url:string;
  
-  url='http://my-shopping-stt-sahal.gamification-d3c0cb24e2b77f6869027abe3de4bca3-0001.sng01.containers.appdomain.cloud/uploadImage';
+  url='https://my-shopping-stt-sahal.gamification-d3c0cb24e2b77f6869027abe3de4bca3-0001.sng01.containers.appdomain.cloud/uploadImage';
   
  return this.http.post<any>(url,param)
  .pipe(map(this.extractData),
@@ -68,7 +68,7 @@ uploadFile(param:any): Observable<any> {
 uploadAudioFile(param:any): Observable<any> {
   var url:string;
  
-  url='http://my-shopping-stt-sahal.gamification-d3c0cb24e2b77f6869027abe3de4bca3-0001.sng01.containers.appdomain.cloud/uploadFile';
+  url='https://my-shopping-stt-sahal.gamification-d3c0cb24e2b77f6869027abe3de4bca3-0001.sng01.containers.appdomain.cloud/uploadFile';
   
  return this.http.post<any>(url,param)
  .pipe(map(this.extractData),

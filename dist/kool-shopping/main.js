@@ -368,7 +368,8 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [{ path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] },
     { path: 'search', component: _search_products_search_products_component__WEBPACK_IMPORTED_MODULE_4__["SearchProductsComponent"] },
-    { path: 'home/product-page', component: _product_page_product_page_component__WEBPACK_IMPORTED_MODULE_5__["ProductPageComponent"] }
+    { path: 'home/product-page', component: _product_page_product_page_component__WEBPACK_IMPORTED_MODULE_5__["ProductPageComponent"] },
+    { path: 'search/product-page', component: _product_page_product_page_component__WEBPACK_IMPORTED_MODULE_5__["ProductPageComponent"] }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -410,13 +411,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+
 
 
 let AppComponent = class AppComponent {
-    constructor() {
+    constructor(toastr) {
+        this.toastr = toastr;
         this.title = 'kool-shopping';
     }
 };
+AppComponent.ctorParameters = () => [
+    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_2__["ToastrService"] }
+];
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-root',
@@ -452,6 +459,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _search_products_search_products_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./search-products/search-products.component */ "./src/app/search-products/search-products.component.ts");
 /* harmony import */ var _product_page_product_page_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./product-page/product-page.component */ "./src/app/product-page/product-page.component.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+
+
 
 
 
@@ -481,7 +492,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"]
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_13__["BrowserAnimationsModule"],
+            ngx_toastr__WEBPACK_IMPORTED_MODULE_14__["ToastrModule"].forRoot()
         ],
         providers: [_shared_rest_api_service__WEBPACK_IMPORTED_MODULE_9__["RestApiService"]],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
@@ -566,6 +579,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var recordrtc__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! recordrtc */ "./node_modules/recordrtc/RecordRTC.js");
 /* harmony import */ var recordrtc__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(recordrtc__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+
 
 
 
@@ -573,10 +588,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let HeaderComponent = class HeaderComponent {
-    constructor(restApi, router, domSanitizer) {
+    constructor(restApi, router, domSanitizer, toastr) {
         this.restApi = restApi;
         this.router = router;
         this.domSanitizer = domSanitizer;
+        this.toastr = toastr;
         this.selectedFile = null;
         this.activeClass = false;
         //Will use this flag for detect recording
@@ -594,10 +610,11 @@ let HeaderComponent = class HeaderComponent {
             this.restApi.searchResponse = data.response;
             if (data.response.length > 0) {
                 this.router.navigateByUrl('/search');
+                this.toastr.success("Search Results");
             }
             else {
                 this.router.navigateByUrl('/home');
-                window.alert("No Result found for the search item");
+                this.toastr.warning("No Result found for the search item");
             }
         });
     }
@@ -616,7 +633,7 @@ let HeaderComponent = class HeaderComponent {
                 }
             }
             else {
-                window.alert("No result Found");
+                this.toastr.warning("No Result found for the uploaded item");
             }
         });
         //console.log(event);
@@ -630,6 +647,7 @@ let HeaderComponent = class HeaderComponent {
     initiateRecording() {
         this.activeClass = true;
         this.recording = true;
+        this.audiotext = '';
         let mediaConstraints = {
             video: false,
             audio: true
@@ -688,8 +706,8 @@ let HeaderComponent = class HeaderComponent {
                 this.audiotext = transcript;
                 this.searchProduct(transcript);
             }
-            {
-                window.alert("No result Found");
+            else {
+                this.toastr.error("cannot recognise the audio");
             }
             // event.srcElement.value = null;
             /*var className:string;
@@ -713,7 +731,8 @@ let HeaderComponent = class HeaderComponent {
 HeaderComponent.ctorParameters = () => [
     { type: _shared_rest_api_service__WEBPACK_IMPORTED_MODULE_2__["RestApiService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"] }
+    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"] },
+    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_6__["ToastrService"] }
 ];
 HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -775,6 +794,7 @@ let HomeComponent = class HomeComponent {
             // console.log(data.response[item].ITEM_NUMBER);
             //}
             this.products = data.response;
+            //this.toastr.error("Hello, I'm the toastr message.")
         });
     }
 };
@@ -993,7 +1013,7 @@ let RestApiService = class RestApiService {
      subsVar: Subscription;*/
     constructor(http) {
         this.http = http;
-        this.apiURL = 'http://my-shopping-b-dao-sahal.gamification-d3c0cb24e2b77f6869027abe3de4bca3-0001.sng01.containers.appdomain.cloud';
+        this.apiURL = 'https://my-shopping-b-dao-sahal.gamification-d3c0cb24e2b77f6869027abe3de4bca3-0001.sng01.containers.appdomain.cloud';
     }
     extractData(res) {
         let body = res;
@@ -1020,13 +1040,13 @@ let RestApiService = class RestApiService {
     }
     uploadFile(param) {
         var url;
-        url = 'http://my-shopping-stt-sahal.gamification-d3c0cb24e2b77f6869027abe3de4bca3-0001.sng01.containers.appdomain.cloud/uploadImage';
+        url = 'https://my-shopping-stt-sahal.gamification-d3c0cb24e2b77f6869027abe3de4bca3-0001.sng01.containers.appdomain.cloud/uploadImage';
         return this.http.post(url, param)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(this.extractData), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
     }
     uploadAudioFile(param) {
         var url;
-        url = 'http://my-shopping-stt-sahal.gamification-d3c0cb24e2b77f6869027abe3de4bca3-0001.sng01.containers.appdomain.cloud/uploadFile';
+        url = 'https://my-shopping-stt-sahal.gamification-d3c0cb24e2b77f6869027abe3de4bca3-0001.sng01.containers.appdomain.cloud/uploadFile';
         return this.http.post(url, param)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(this.extractData), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
     }
