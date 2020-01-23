@@ -25,6 +25,11 @@ export class SearchProductsComponent implements OnInit,OnDestroy {
   ngOnInit() {
     this.products=this.restApi.searchResponse;
   }
+  productItem(id:any){
+    console.log(id);
+    this.restApi.productid=id;
+
+  }
   ngOnDestroy() {
     if (this.mySubscription) {
       this.mySubscription.unsubscribe();
