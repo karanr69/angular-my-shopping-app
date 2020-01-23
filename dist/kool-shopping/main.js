@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div>\n<app-header></app-header>\n<router-outlet></router-outlet>\n<app-footer></app-footer>\n<button class=\"open-button\" onclick=\"openForm()\"><i class='fa fa-comments-o' style='font-size:48px;color:red'></i></button>\n\n<div class=\"chat-popup\" id=\"myForm\">\n  <form action=\"/action_page.php\" class=\"form-container\">\n    <h1>Chat</h1>\n\n    <label for=\"msg\"><b>Message</b></label>\n    <textarea placeholder=\"Type message..\" name=\"msg\" required></textarea>\n\n    <button type=\"submit\" class=\"btn\">Send</button>\n    <button type=\"button\" class=\"btn cancel\" onclick=\"closeForm()\">Close</button>\n  </form>\n</div>\n\n\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div>\n<app-header></app-header>\n<router-outlet></router-outlet>\n<app-footer></app-footer>\n<button class=\"open-button\" onclick=\"openForm()\"><i class='fa fa-comments-o' style='font-size:48px;color:red'></i></button>\n\n<div class=\"chat-popup\" id=\"myForm\">\n  <form action=\"\" class=\"form-container\">\n    <h1>Chat</h1>\n\n    <label for=\"msg\"><b>Message</b></label>\n    <textarea placeholder=\"Type message..\" name=\"msg\" required></textarea>\n\n    <button type=\"submit\" class=\"btn\">Send</button>\n    <button type=\"button\" class=\"btn cancel\" onclick=\"closeForm()\">Close</button>\n  </form>\n</div>\n\n\n\n</div>\n");
 
 /***/ }),
 
