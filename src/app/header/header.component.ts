@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from "../shared/rest-api.service";
-import {Router} from '@angular/router';
+import {Router,ActivatedRoute} from '@angular/router';
 import * as RecordRTC from 'recordrtc';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
+//import { relative } from 'path';
 
 @Component({
   selector: 'app-header',
@@ -21,7 +22,7 @@ public activeClass:boolean=false;
  private url;
  private error;
  public audiotext:string;
-  constructor(public restApi: RestApiService,private router: Router,private domSanitizer: DomSanitizer,private toastr: ToastrService) { }
+  constructor(public restApi: RestApiService,private router: Router,private domSanitizer: DomSanitizer,private toastr: ToastrService,private route:ActivatedRoute) { }
 
   ngOnInit() {
   }
@@ -35,6 +36,7 @@ public activeClass:boolean=false;
     
     this.restApi.searchResponse = data.response;
     if(data.response.length>0){
+    
       this.router.navigateByUrl('/search');
       this.toastr.success("Search Results");
 

@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<app-header></app-header>\n<router-outlet></router-outlet>\n<app-footer></app-footer>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div>\n<app-header></app-header>\n<router-outlet></router-outlet>\n<app-footer></app-footer>\n<button class=\"open-button\" onclick=\"openForm()\"><i class='fa fa-comments-o' style='font-size:48px;color:red'></i></button>\n\n<div class=\"chat-popup\" id=\"myForm\">\n  <form action=\"/action_page.php\" class=\"form-container\">\n    <h1>Chat</h1>\n\n    <label for=\"msg\"><b>Message</b></label>\n    <textarea placeholder=\"Type message..\" name=\"msg\" required></textarea>\n\n    <button type=\"submit\" class=\"btn\">Send</button>\n    <button type=\"button\" class=\"btn cancel\" onclick=\"closeForm()\">Close</button>\n  </form>\n</div>\n\n\n\n</div>\n");
 
 /***/ }),
 
@@ -395,7 +395,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".open-button {\r\n   \r\n    border: none;\r\n    cursor: pointer;\r\n    opacity: 0.8;\r\n    position: fixed;\r\n    bottom: 23px;\r\n    right: 28px;\r\n    background-color: #fff;\r\n   \r\n  }\r\n  \r\n  /* The popup chat - hidden by default */\r\n  \r\n  .chat-popup {\r\n    display: none;\r\n    position: fixed;\r\n    bottom: 0;\r\n    right: 15px;\r\n    border: 3px solid #f1f1f1;\r\n    z-index: 9;\r\n  }\r\n  \r\n  /* Add styles to the form container */\r\n  \r\n  .form-container {\r\n    max-width: 300px;\r\n    padding: 10px;\r\n    background-color: white;\r\n  }\r\n  \r\n  /* Full-width textarea */\r\n  \r\n  .form-container textarea {\r\n    width: 100%;\r\n    padding: 15px;\r\n    margin: 5px 0 22px 0;\r\n    border: none;\r\n    background: #f1f1f1;\r\n    resize: none;\r\n    min-height: 200px;\r\n  }\r\n  \r\n  /* When the textarea gets focus, do something */\r\n  \r\n  .form-container textarea:focus {\r\n    background-color: #ddd;\r\n    outline: none;\r\n  }\r\n  \r\n  /* Set a style for the submit/send button */\r\n  \r\n  .form-container .btn {\r\n    background-color: #4CAF50;\r\n    color: white;\r\n    padding: 16px 20px;\r\n    border: none;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    margin-bottom:10px;\r\n    opacity: 0.8;\r\n  }\r\n  \r\n  /* Add a red background color to the cancel button */\r\n  \r\n  .form-container .cancel {\r\n    background-color: red;\r\n  }\r\n  \r\n  /* Add some hover effects to buttons */\r\n  \r\n  .form-container .btn:hover, .open-button:hover {\r\n    opacity: 1;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0lBRUksWUFBWTtJQUNaLGVBQWU7SUFDZixZQUFZO0lBQ1osZUFBZTtJQUNmLFlBQVk7SUFDWixXQUFXO0lBQ1gsc0JBQXNCOztFQUV4Qjs7RUFFQSx1Q0FBdUM7O0VBQ3ZDO0lBQ0UsYUFBYTtJQUNiLGVBQWU7SUFDZixTQUFTO0lBQ1QsV0FBVztJQUNYLHlCQUF5QjtJQUN6QixVQUFVO0VBQ1o7O0VBRUEscUNBQXFDOztFQUNyQztJQUNFLGdCQUFnQjtJQUNoQixhQUFhO0lBQ2IsdUJBQXVCO0VBQ3pCOztFQUVBLHdCQUF3Qjs7RUFDeEI7SUFDRSxXQUFXO0lBQ1gsYUFBYTtJQUNiLG9CQUFvQjtJQUNwQixZQUFZO0lBQ1osbUJBQW1CO0lBQ25CLFlBQVk7SUFDWixpQkFBaUI7RUFDbkI7O0VBRUEsK0NBQStDOztFQUMvQztJQUNFLHNCQUFzQjtJQUN0QixhQUFhO0VBQ2Y7O0VBRUEsMkNBQTJDOztFQUMzQztJQUNFLHlCQUF5QjtJQUN6QixZQUFZO0lBQ1osa0JBQWtCO0lBQ2xCLFlBQVk7SUFDWixlQUFlO0lBQ2YsV0FBVztJQUNYLGtCQUFrQjtJQUNsQixZQUFZO0VBQ2Q7O0VBRUEsb0RBQW9EOztFQUNwRDtJQUNFLHFCQUFxQjtFQUN2Qjs7RUFFQSxzQ0FBc0M7O0VBQ3RDO0lBQ0UsVUFBVTtFQUNaIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIub3Blbi1idXR0b24ge1xyXG4gICBcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIG9wYWNpdHk6IDAuODtcclxuICAgIHBvc2l0aW9uOiBmaXhlZDtcclxuICAgIGJvdHRvbTogMjNweDtcclxuICAgIHJpZ2h0OiAyOHB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjtcclxuICAgXHJcbiAgfVxyXG4gIFxyXG4gIC8qIFRoZSBwb3B1cCBjaGF0IC0gaGlkZGVuIGJ5IGRlZmF1bHQgKi9cclxuICAuY2hhdC1wb3B1cCB7XHJcbiAgICBkaXNwbGF5OiBub25lO1xyXG4gICAgcG9zaXRpb246IGZpeGVkO1xyXG4gICAgYm90dG9tOiAwO1xyXG4gICAgcmlnaHQ6IDE1cHg7XHJcbiAgICBib3JkZXI6IDNweCBzb2xpZCAjZjFmMWYxO1xyXG4gICAgei1pbmRleDogOTtcclxuICB9XHJcbiAgXHJcbiAgLyogQWRkIHN0eWxlcyB0byB0aGUgZm9ybSBjb250YWluZXIgKi9cclxuICAuZm9ybS1jb250YWluZXIge1xyXG4gICAgbWF4LXdpZHRoOiAzMDBweDtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxuICB9XHJcbiAgXHJcbiAgLyogRnVsbC13aWR0aCB0ZXh0YXJlYSAqL1xyXG4gIC5mb3JtLWNvbnRhaW5lciB0ZXh0YXJlYSB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIHBhZGRpbmc6IDE1cHg7XHJcbiAgICBtYXJnaW46IDVweCAwIDIycHggMDtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIGJhY2tncm91bmQ6ICNmMWYxZjE7XHJcbiAgICByZXNpemU6IG5vbmU7XHJcbiAgICBtaW4taGVpZ2h0OiAyMDBweDtcclxuICB9XHJcbiAgXHJcbiAgLyogV2hlbiB0aGUgdGV4dGFyZWEgZ2V0cyBmb2N1cywgZG8gc29tZXRoaW5nICovXHJcbiAgLmZvcm0tY29udGFpbmVyIHRleHRhcmVhOmZvY3VzIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNkZGQ7XHJcbiAgICBvdXRsaW5lOiBub25lO1xyXG4gIH1cclxuICBcclxuICAvKiBTZXQgYSBzdHlsZSBmb3IgdGhlIHN1Ym1pdC9zZW5kIGJ1dHRvbiAqL1xyXG4gIC5mb3JtLWNvbnRhaW5lciAuYnRuIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICM0Q0FGNTA7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBwYWRkaW5nOiAxNnB4IDIwcHg7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIG1hcmdpbi1ib3R0b206MTBweDtcclxuICAgIG9wYWNpdHk6IDAuODtcclxuICB9XHJcbiAgXHJcbiAgLyogQWRkIGEgcmVkIGJhY2tncm91bmQgY29sb3IgdG8gdGhlIGNhbmNlbCBidXR0b24gKi9cclxuICAuZm9ybS1jb250YWluZXIgLmNhbmNlbCB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7XHJcbiAgfVxyXG4gIFxyXG4gIC8qIEFkZCBzb21lIGhvdmVyIGVmZmVjdHMgdG8gYnV0dG9ucyAqL1xyXG4gIC5mb3JtLWNvbnRhaW5lciAuYnRuOmhvdmVyLCAub3Blbi1idXR0b246aG92ZXIge1xyXG4gICAgb3BhY2l0eTogMTtcclxuICB9Il19 */");
 
 /***/ }),
 
@@ -587,12 +587,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+//import { relative } from 'path';
 let HeaderComponent = class HeaderComponent {
-    constructor(restApi, router, domSanitizer, toastr) {
+    constructor(restApi, router, domSanitizer, toastr, route) {
         this.restApi = restApi;
         this.router = router;
         this.domSanitizer = domSanitizer;
         this.toastr = toastr;
+        this.route = route;
         this.selectedFile = null;
         this.activeClass = false;
         //Will use this flag for detect recording
@@ -732,7 +734,8 @@ HeaderComponent.ctorParameters = () => [
     { type: _shared_rest_api_service__WEBPACK_IMPORTED_MODULE_2__["RestApiService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
     { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"] },
-    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_6__["ToastrService"] }
+    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_6__["ToastrService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] }
 ];
 HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
