@@ -9,11 +9,15 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HomeComponent implements OnInit {
   public products:[];
-
+  public loadIcon:boolean=true;
   constructor(public restApi: RestApiService) { }
 
   ngOnInit() {
+    
     this.loadProducts();
+    if(this.products.length>0){
+      this.loadIcon=false;
+    }
   }
   productItem(id:any){
     console.log(id);
@@ -29,6 +33,7 @@ var param;
     //}
     
     this.products = data.response;
+    
     //this.toastr.error("Hello, I'm the toastr message.")
   });
 }

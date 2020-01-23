@@ -9,6 +9,8 @@ import {Router, NavigationEnd} from '@angular/router';
 export class SearchProductsComponent implements OnInit,OnDestroy {
   public products:[];
   mySubscription: any;
+  public loadIcon:boolean=true;
+
   constructor(public restApi: RestApiService,private router: Router) {
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
@@ -24,6 +26,9 @@ export class SearchProductsComponent implements OnInit,OnDestroy {
 
   ngOnInit() {
     this.products=this.restApi.searchResponse;
+    if(this.products.length>0){
+      this.loadIcon=false;
+    }
   }
   productItem(id:any){
     console.log(id);
