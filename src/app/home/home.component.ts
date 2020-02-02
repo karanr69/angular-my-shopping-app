@@ -9,6 +9,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HomeComponent implements OnInit {
   public products:[];
+  public prices:[];
+  public product:[];
   public loadIcon:boolean=true;
   constructor(public restApi: RestApiService) { }
 
@@ -33,8 +35,13 @@ var param;
     //}
     
     this.products = data.response;
-    
+    this.restApi.getAllProductPriceList(param).subscribe((data:any)=>{
+      this.prices = data.response;
+    });
     //this.toastr.error("Hello, I'm the toastr message.")
   });
+
+  
+
 }
 }

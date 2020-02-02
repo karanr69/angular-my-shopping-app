@@ -1,62 +1,194 @@
-
-<p> <img src="http://getproductimage-red-hawk.gamification-d3c0cb24e2b77f6869027abe3de4bca3-0001.sng01.containers.appdomain.cloud/get-image-for-item-id/{{productid}}" alt=""></p>
-<!--
-<div class="product_image_area section_padding">
-    <div class="container">
-      <div class="row s_product_inner">
-        <div class="col-lg-5">
-          <div class="product_slider_img">
-            <div id="vertical">
-              <div data-thumb="img/product_details/prodect_details_1.png">
-                <img src="img/product_details/prodect_details_1.png" />
+<!-- Product Shop Section Begin -->
+<section class="product-shop spad">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-8 order-2 order-lg-1 produts-sidebar-filter d-none">
+              <div class="filter-widget">
+                  <h4 class="fw-title">Categories</h4>
+                  <ul class="filter-catagories">
+                      <li><a href="#">Men</a></li>
+                      <li><a href="#">Women</a></li>
+                      <li><a href="#">Kids</a></li>
+                  </ul>
               </div>
-              <div data-thumb="img/product_details/prodect_details_2.png">
-                <img src="img/product_details/prodect_details_2.png"/>
+              <div class="filter-widget">
+                  <h4 class="fw-title">Brand</h4>
+                  <div class="fw-brand-check">
+                      <div class="bc-item">
+                          <label for="bc-calvin">
+                              Calvin Klein
+                              <input type="checkbox" id="bc-calvin">
+                              <span class="checkmark"></span>
+                          </label>
+                      </div>
+                      <div class="bc-item">
+                          <label for="bc-diesel">
+                              Diesel
+                              <input type="checkbox" id="bc-diesel">
+                              <span class="checkmark"></span>
+                          </label>
+                      </div>
+                      <div class="bc-item">
+                          <label for="bc-polo">
+                              Polo
+                              <input type="checkbox" id="bc-polo">
+                              <span class="checkmark"></span>
+                          </label>
+                      </div>
+                      <div class="bc-item">
+                          <label for="bc-tommy">
+                              Tommy Hilfiger
+                              <input type="checkbox" id="bc-tommy">
+                              <span class="checkmark"></span>
+                          </label>
+                      </div>
+                  </div>
               </div>
-              <div data-thumb="img/product_details/prodect_details_3.png">
-                <img src="img/product_details/prodect_details_3.png" />
+              <div class="filter-widget">
+                  <h4 class="fw-title">Price</h4>
+                  <div class="filter-range-wrap">
+                      <div class="range-slider">
+                          <div class="price-input">
+                              <input type="text" id="minamount">
+                              <input type="text" id="maxamount">
+                          </div>
+                      </div>
+                      <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+                          data-min="33" data-max="98">
+                          <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+                          <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                          <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                      </div>
+                  </div>
+                  <a href="#" class="filter-btn">Filter</a>
               </div>
-              <div data-thumb="img/product_details/prodect_details_4.png">
-                <img src="img/product_details/prodect_details_4.png" />
+              <div class="filter-widget">
+                  <h4 class="fw-title">Color</h4>
+                  <div class="fw-color-choose">
+                      <div class="cs-item">
+                          <input type="radio" id="cs-black">
+                          <label class="cs-black" for="cs-black">Black</label>
+                      </div>
+                      <div class="cs-item">
+                          <input type="radio" id="cs-violet">
+                          <label class="cs-violet" for="cs-violet">Violet</label>
+                      </div>
+                      <div class="cs-item">
+                          <input type="radio" id="cs-blue">
+                          <label class="cs-blue" for="cs-blue">Blue</label>
+                      </div>
+                      <div class="cs-item">
+                          <input type="radio" id="cs-yellow">
+                          <label class="cs-yellow" for="cs-yellow">Yellow</label>
+                      </div>
+                      <div class="cs-item">
+                          <input type="radio" id="cs-red">
+                          <label class="cs-red" for="cs-red">Red</label>
+                      </div>
+                      <div class="cs-item">
+                          <input type="radio" id="cs-green">
+                          <label class="cs-green" for="cs-green">Green</label>
+                      </div>
+                  </div>
               </div>
-            </div>
+              <div class="filter-widget">
+                  <h4 class="fw-title">Size</h4>
+                  <div class="fw-size-choose">
+                      <div class="sc-item">
+                          <input type="radio" id="s-size">
+                          <label for="s-size">s</label>
+                      </div>
+                      <div class="sc-item">
+                          <input type="radio" id="m-size">
+                          <label for="m-size">m</label>
+                      </div>
+                      <div class="sc-item">
+                          <input type="radio" id="l-size">
+                          <label for="l-size">l</label>
+                      </div>
+                      <div class="sc-item">
+                          <input type="radio" id="xs-size">
+                          <label for="xs-size">xs</label>
+                      </div>
+                  </div>
+              </div>
+              <div class="filter-widget">
+                  <h4 class="fw-title">Tags</h4>
+                  <div class="fw-tags">
+                      <a href="#">Towel</a>
+                      <a href="#">Shoes</a>
+                      <a href="#">Coat</a>
+                      <a href="#">Dresses</a>
+                      <a href="#">Trousers</a>
+                      <a href="#">Men's hats</a>
+                      <a href="#">Backpack</a>
+                  </div>
+              </div>
           </div>
-        </div>
-        <div class="col-lg-5 offset-lg-1">
-          <div class="s_product_text">
-            <h3>Faded SkyBlu Denim Jeans</h3>
-            <h2>$149.99</h2>
-            <ul class="list">
-              <li>
-                <a class="active" href="#">
-                  <span>Category</span> : Household</a>
-              </li>
-              <li>
-                <a href="#"> <span>Availibility</span> : In Stock</a>
-              </li>
-            </ul>
-            <p>
-                Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for something that can make your interior look awesome, and at the same time.
-            </p>
-            <div class="card_area">
-              <div class="product_count d-inline-block">
-                <span class="inumber-decrement"> <i class="ti-minus"></i></span>
-                <input class="input-number" type="text" value="1" min="0" max="10">
-                <span class="number-increment"> <i class="ti-plus"></i></span>
+          <div class="col-lg-12 order-1 order-lg-2">
+              <div class="product-show-option">
+                  <div class="row">
+                      <div class="col-lg-7 col-md-7 d-none">
+                          <div class="select-option">
+                              <select class="sorting">
+                                  <option value="">Default Sorting</option>
+                              </select>
+                              <select class="p-show">
+                                  <option value="">Show:</option>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="col-lg-5 col-md-5 text-right d-none">
+                          <p>Show 01- 09 Of 36 Product</p>
+                      </div>
+                  </div>
               </div>
-              <div class="add_to_cart">
-                  <a href="#" class="btn_3">add to cart</a>
-                  <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
+              <div class="product-list">
+                  <div class="row" >
+                      <div class="col-lg-4 col-sm-6">
+                          <div class="product-item">
+                              <div class="pi-pic">
+                                <img src="http://getproductimage-red-hawk.gamification-d3c0cb24e2b77f6869027abe3de4bca3-0001.sng01.containers.appdomain.cloud/get-image-for-item-id/{{productid}}" alt="">
+                                  <div class="sale pp-sale d-none">Sale</div>
+                                  <div class="icon">
+                                      <i class="icon_heart_alt"></i>
+                                  </div>
+                                  <ul>
+                                      <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                      <li class="quick-view"><a >+ Large View</a></li>
+                                      <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-8 col-sm-6">
+                        <div class="product-item">
+                            <div class="pi-text adjust-description">
+                              <div class="pi-pic">
+                               <div class="product-price"><font size="7">{{product1[0].DESCRIPTION}}</font></div>
+                                <div class="product-price">SKU_ID:<font color="black">{{product1[0].ITEM_NUMBER}}</font></div>
+                                
+                                <div class="product-price">LONG_DESCRIPTION:<font color="black">{{product1[0].LONG_DESCRIPTION}}</font></div>
+                                <div class="product-price">SKU_UNIT_OF_MEASURE:<font color="black">{{product1[0].SKU_UNIT_OF_MEASURE}}</font></div>
+                                <div class="product-price">BRAND:<font color="black">{{product3[0].BRAND}}</font></div>
+                                <div class="product-price">COLOR:<font color="black">{{product1[0].SKU_ATTRIBUTE_VALUE2}}</font></div>
+                                <div class="product-price">PRICE:<font color="black">{{product2[0].LIST_PRICE}}</font></div>
+                                <div class="product-price">DISCOUNT:<font color="black">{{product2[0].DISCOUNT*100}}</font></div>
+                                <div class="product-price">IN_STOCK:<font color="black">{{product2[0].IN_STOCK}}</font></div>
+                                <div class="product-price">
+                                  ₹<font color="black"> {{product2[0].LIST_PRICE}}</font>
+                                   <!-- <span>$35.00</span> -->
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+             
+                  </div>
               </div>
-              <div class="social_icon">
-                  <a href="#" class="fb"><i class="ti-facebook"></i></a>
-                  <a href="#" class="tw"><i class="ti-twitter-alt"></i></a>
-                  <a href="#" class="li"><i class="ti-linkedin"></i></a>
-              </div>
-            </div>
+              
           </div>
-        </div>
       </div>
-    </div>
   </div>
-  -->
+</section>
+

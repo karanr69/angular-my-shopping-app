@@ -30,7 +30,7 @@ export class RestApiService {
  getAllProductList(param:any): Observable<any> {
    var url:string;
    if(param)
-   url=this.apiURL + '/api/getproducts/desc/'+param;
+   url=this.apiURL + '/api/getproducts/desc/'+param.toLowerCase();
    else
    url=this.apiURL + '/api/getproducts';
   return this.http.get<any>(url)
@@ -40,10 +40,21 @@ export class RestApiService {
   )
 }
 
+   // HttpClient API get() method => Fetch product list
+   getAllProductPriceList(param:any): Observable<any> {
+    var url:string;
+    url=this.apiURL + '/api/getproducts/price';
+   return this.http.get<any>(url)
+   .pipe(map(this.extractData),
+     retry(1),
+     catchError(this.handleError)
+   )
+ }
+
 getAllSearchProductList(param:any): Observable<any> {
   var url:string;
   if(param)
-  url=this.apiURL + '/api/getproducts/desc/'+param;
+  url=this.apiURL + '/api/getproducts/desc/'+param.toLowerCase();
   else
   url=this.apiURL + '/api/getproducts';
  return this.http.get<any>(url)
@@ -52,7 +63,35 @@ getAllSearchProductList(param:any): Observable<any> {
    catchError(this.handleError)
  )
 }
+getProduct(param:any): Observable<any> {
+  var url:string;
+  if(param){url=this.apiURL + '/api/getproducts/id/'+param;
+ return this.http.get<any>(url)
+ .pipe(map(this.extractData),
+   retry(1),
+   catchError(this.handleError)
+ )}
+}
 
+getPrice(param:any): Observable<any> {
+  var url:string;
+  if(param){url=this.apiURL + '/api/getproducts/price/'+param;
+  
+ return this.http.get<any>(url)
+ .pipe(map(this.extractData),
+   retry(1),
+   catchError(this.handleError)
+ )}
+}
+getStyle(param:any): Observable<any> {
+  var url:string;
+  if(param){url=this.apiURL + '/api/getproducts/style/'+param;
+ return this.http.get<any>(url)
+ .pipe(map(this.extractData),
+   retry(1),
+   catchError(this.handleError)
+ )}
+}
 uploadFile(param:any): Observable<any> {
   var url:string;
  
