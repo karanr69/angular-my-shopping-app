@@ -11,7 +11,7 @@ export class AppComponent {
   constructor(private toastr: ToastrService) { }
 
   openForm(){
-    window.open('https://assistant-chat-us-east.watsonplatform.net/web/public/8740773e-7ff7-44df-b840-9a502e820678');
+    window.open('https://assistant-chat-eu-gb.watsonplatform.net/web/public/e5035b01-5e7e-47ec-bee0-587fdc239455');
 
   }
 }
