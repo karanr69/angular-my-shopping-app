@@ -8,6 +8,7 @@ import {Router, NavigationEnd} from '@angular/router';
 })
 export class SearchProductsComponent implements OnInit,OnDestroy {
   public products:[];
+  public prices:[];
   mySubscription: any;
   public loadIcon:boolean=true;
 
@@ -25,6 +26,7 @@ export class SearchProductsComponent implements OnInit,OnDestroy {
    }
 
   ngOnInit() {
+    var param;
     this.products=this.restApi.searchResponse;
     if(this.products.length>0){
       this.loadIcon=false;
