@@ -4,6 +4,7 @@ import {Router,ActivatedRoute} from '@angular/router';
 import * as RecordRTC from 'recordrtc';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from "ngx-spinner";
 //import { relative } from 'path';
 
 @Component({
@@ -22,13 +23,17 @@ public activeClass:boolean=false;
  private url;
  private error;
  public audiotext:string;
-  constructor(public restApi: RestApiService,private router: Router,private domSanitizer: DomSanitizer,private toastr: ToastrService,private route:ActivatedRoute) { }
+ public flag:boolean=false;
+  constructor(public restApi: RestApiService,private router: Router,private domSanitizer: DomSanitizer,private toastr: ToastrService,private route:ActivatedRoute,private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    
   }
+
   searchProduct(value){
     var param=value
     this.restApi.searchResponse=[];
+    this.spinner.show();
   this.restApi.getAllProductList(param).subscribe((data: any) => {
     //for(var item in data.response){
      // console.log(data.response[item].ITEM_NUMBER);
@@ -36,18 +41,20 @@ public activeClass:boolean=false;
     
     this.restApi.searchResponse = data.response;
     if(data.response.length>0){
-    
-      this.router.navigateByUrl('/search');
+      this.spinner.hide();
+      this.router.navigate(['search']);
       this.toastr.success("Search Results");
-
+      
     }else{
       this.router.navigateByUrl('/home');
+      this.spinner.hide();
       this.toastr.warning("No Result found for the search item");
 
     }
   });
 }
 onFileSelected(event){
+  this.spinner.show();
   this.selectedFile =<File>event.target.files[0];
   const fd=new FormData();
   fd.append('file',this.selectedFile,this.selectedFile.name);
@@ -62,6 +69,7 @@ onFileSelected(event){
       this.searchProduct(className);
     }
   }else{
+    this.spinner.hide();
     this.toastr.warning("No Result found for the uploaded item");
   }
   });
@@ -107,9 +115,10 @@ successCallback(stream) {
 ionViewDidLoad(){
   setTimeout(() => {
     this.stopRecording();
-     
+    this.spinner.show();
 
   }, 2000);
+  
 }
 stopRecording() {
   this.recording = false;
@@ -142,7 +151,9 @@ processRecording(blob) {
       this.searchProduct(transcript);
       
     }else{
+      this.spinner.hide();
       this.toastr.error("cannot recognise the audio");
+      
     }
    // event.srcElement.value = null;
     /*var className:string;

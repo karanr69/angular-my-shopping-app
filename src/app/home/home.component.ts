@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     }
   }
   productItem(id:any){
-    console.log(id);
+    //console.log(id);
     this.restApi.productid=id;
 
   }

@@ -164,9 +164,11 @@
                                     <a href="#">
                                         <h5>{{product.LONG_DESCRIPTION}}</h5>
                                     </a>
-                                    <div class="product-price">
-                                        ₹ {{500+i}}
-                                        <!-- <span>$35.00</span> -->
+                                    <div class="product-price" *ngFor="let price of prices;" >
+                                        <div  *ngIf="product.ITEM_NUMBER===price.ITEM_NUMBER">
+                                        ₹ {{price.LIST_PRICE}}
+                                       <!-- <span>$35.00</span> -->
+                                    </div>
                                     </div>
                                     
                                 </div>
@@ -175,7 +177,7 @@
                
                     </div>
                 </div>
-                <div class="loading-more d-none" [ngClass]="{'d-none': loadIcon }">
+                <div class="loading-more d-none">
                     <i class="icon_loading"></i>
                     <a href="#">
                         Loading More

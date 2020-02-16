@@ -13,6 +13,7 @@ export class RestApiService {
   headers: HttpHeaders;  
   options: any;
   public productid:string;
+ 
  /* invokeFirstComponentFunction = new EventEmitter();    
   subsVar: Subscription;*/
   constructor(private http: HttpClient) {

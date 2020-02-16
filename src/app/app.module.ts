@@ -12,6 +12,7 @@ import { SearchProductsComponent } from './search-products/search-products.compo
 import { ProductPageComponent } from './product-page/product-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule,
 	ToastrModule.forRoot()
   ],
   providers: [RestApiService],

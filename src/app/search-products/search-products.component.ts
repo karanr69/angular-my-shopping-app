@@ -31,11 +31,15 @@ export class SearchProductsComponent implements OnInit,OnDestroy {
     if(this.products.length>0){
       this.loadIcon=false;
     }
+    this.restApi.getAllProductPriceList(param).subscribe((data:any)=>{
+      this.prices = data.response;
+    });
   }
   productItem(id:any){
+    let param;
     console.log(id);
     this.restApi.productid=id;
-
+    
   }
   ngOnDestroy() {
     if (this.mySubscription) {
