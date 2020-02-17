@@ -166,7 +166,7 @@
                                     </a>
                                     <div class="product-price" *ngFor="let price of prices;" >
                                         <div  *ngIf="product.ITEM_NUMBER===price.ITEM_NUMBER">
-                                        ₹ {{price.LIST_PRICE}}
+                                        ₹ {{price.LIST_PRICE * 70 }}
                                        <!-- <span>$35.00</span> -->
                                     </div>
                                     </div>

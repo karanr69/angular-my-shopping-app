@@ -172,11 +172,11 @@
                                 <div class="product-price">SKU_UNIT_OF_MEASURE:<font color="black">{{product1[0].SKU_UNIT_OF_MEASURE}}</font></div>
                                 <div class="product-price">BRAND:<font color="black">{{product3[0].BRAND}}</font></div>
                                 <div class="product-price">COLOR:<font color="black">{{product1[0].SKU_ATTRIBUTE_VALUE2}}</font></div>
-                                <div class="product-price">PRICE:<font color="black">{{product2[0].LIST_PRICE}}</font></div>
+                                <div class="product-price">PRICE:<font color="black">{{product2[0].LIST_PRICE * 70}}</font></div>
                                 <div class="product-price">DISCOUNT:<font color="black">{{product2[0].DISCOUNT*100}}</font></div>
                                 <div class="product-price">IN_STOCK:<font color="black">{{product2[0].IN_STOCK}}</font></div>
                                 <div class="product-price">
-                                  ₹<font color="black"> {{product2[0].LIST_PRICE}}</font>
+                                  ₹<font color="black"> {{product2[0].LIST_PRICE * 70}}</font>
                                    <!-- <span>$35.00</span> -->
                                 </div>
                               </div>
@@ -189,6 +189,43 @@
               
           </div>
       </div>
+      <!--new code-->
+      <h3>Similar products</h3>
+      <div class="product-list">
+        <div class="row" >
+            <div class="col-lg-4 col-sm-6" *ngFor="let product of products;let i = index" >
+                <div *ngIf="i<3" >
+                <div class="product-item">
+                    <div class="pi-pic">
+                        <img src="http://getproductimage-red-hawk.gamification-d3c0cb24e2b77f6869027abe3de4bca3-0001.sng01.containers.appdomain.cloud/get-image-for-item-id/{{products[products.length - 1].ITEM_NUMBER}}" alt="">
+                        <div class="sale pp-sale d-none">Sale</div>
+                        <div class="icon">
+                            <i class="icon_heart_alt"></i>
+                        </div>
+                        <ul>
+                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                            <li class="quick-view"><a [routerLink]="['product-page']"(click)=productItem(product.ITEM_NUMBER)>+ Quick View</a></li>
+                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="pi-text" >
+                        <div class="catagory-name">{{products[products.length - 1].DESCRIPTION}}</div>
+                        <a href="#">
+                            <h5>{{products[products.length - 1].LONG_DESCRIPTION}}</h5>
+                        </a>
+                        <div class="product-price" *ngFor="let price of product2;" >
+                            <div  *ngIf="products[products.length - 1].ITEM_NUMBER===price.ITEM_NUMBER">
+                            ₹ {{products[products.length - 1].LIST_PRICE * 70 }}
+                           <!-- <span>$35.00</span> -->
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+   
+        </div>
+    </div>
   </div>
 </section>
 
