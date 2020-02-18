@@ -13,6 +13,7 @@ import { ProductPageComponent } from './product-page/product-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { ContactsComponent } from './contacts/contacts.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     HeaderComponent,
     HomeComponent,
     SearchProductsComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,

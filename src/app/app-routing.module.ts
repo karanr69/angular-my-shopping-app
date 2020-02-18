@@ -3,12 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SearchProductsComponent } from './search-products/search-products.component';
 import {ProductPageComponent} from './product-page/product-page.component'
-
+import {ContactsComponent} from './contacts/contacts.component'
 const routes: Routes = [
 { path: 'home', component: HomeComponent},
 {path: 'search', component: SearchProductsComponent},
 {path: 'home/product-page', component: ProductPageComponent},
 {path: 'search/product-page', component: ProductPageComponent},
+{path: 'contacts', component: ContactsComponent},
 { path: '**', redirectTo: '/home', pathMatch: 'full'}
 
 
